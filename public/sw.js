@@ -1,0 +1,5 @@
+const CACHE='gather-v1.0.0';
+const FILES=['./','./index.html','./style.css','./app.js','./model.js','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('gather-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(event.request.method!=='GET'||url.origin!==self.location.origin)return;event.respondWith(caches.open(CACHE).then(async cache=>{try{const response=await fetch(event.request);if(response.ok&&FILES.some(file=>new URL(file,self.registration.scope).href===url.href))await cache.put(event.request,response.clone());return response;}catch{const stored=await cache.match(event.request);if(stored)return stored;if(event.request.mode==='navigate')return cache.match('./index.html');return Response.error();}}));});

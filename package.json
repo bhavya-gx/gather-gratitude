@@ -1,0 +1,1 @@
+{"name":"gather-gratitude","version":"1.0.0","private":true,"type":"module","description":"A private, offline gratitude journal for the moments worth keeping.","license":"MIT","scripts":{"start":"node server.mjs","test":"node --test","check":"node --check public/app.js && node --check public/model.js && node --check public/sw.js"},"engines":{"node":">=20"}}
