@@ -4,6 +4,16 @@
 
 An installable, offline-capable web app. No account, API keys, backend, dependencies, or paid services required. Open source under the MIT license.
 
+## Install the app
+
+**Live app: https://bhavya-gx.github.io/gather-gratitude/**
+
+- **iPhone (Safari):** open the link, tap Share, then Add to Home Screen.
+- **Android (Chrome):** open the link, tap the menu, then Install app (or Add to Home screen).
+- **Desktop (Chrome/Edge):** click the install icon in the address bar.
+
+This is a web app installed from the browser, not an App Store or APK release. Entries stay in your browser's local storage, unencrypted, so export backups regularly.
+
 ## Try it locally
 
 Requires Node.js 20 or newer.
